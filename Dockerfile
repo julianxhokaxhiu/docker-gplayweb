@@ -17,6 +17,7 @@ ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ENV GMAIL_ADDRESS "foobar@gmail.com"
 
 # Your GMAIL Password of the account you want to use to download APKs
+# It is highly suggested to use App Passwords. See https://support.google.com/accounts/answer/185833?hl=en
 ENV GMAIL_PASSWORD "my-awesome-password"
 
 # To get your androidID, use *#*#8255#*#* on your phone to start Gtalk Monitor. The hex string listed after aid is your androidID.
