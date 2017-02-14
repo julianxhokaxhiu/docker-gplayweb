@@ -66,7 +66,7 @@ RUN apk --update add --no-cache \
     zlib \
     ncurses5 \
     libffi \
-    libssl1.0 \
+    openssl \
     libjpeg-turbo \
     openjdk8 \
     caddy
@@ -82,7 +82,8 @@ RUN apk --update add --no-cache --virtual .build-deps \
     python3-dev \
     libffi-dev \
     libjpeg-turbo-dev \
-    zlib-dev
+    zlib-dev \
+    openssl-dev
 
 # Install GPlayWeb
 ##################
