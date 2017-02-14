@@ -40,7 +40,6 @@ COPY src/* /root/
 ############################
 
 RUN mkdir -p $DATA_DIR \
-    && mkdir -p $DATA_DIR/fdroid/repo \
     && mkdir -p $APP_DIR
 
 # Set the work directory

@@ -16,6 +16,9 @@ sedeasy "ANDROID_ID" "$ANDROID_ID" /etc/gplayweb.conf
 sedeasy "GPLAYWEB_LANGUAGE" "$GPLAYWEB_LANGUAGE" /etc/gplayweb.conf
 sedeasy "HTTP_ROOT" "$DATA_DIR/fdroid/repo" /etc/Caddyfile
 
+# Prepare required folders
+mkdir -p $DATA_DIR/fdroid/repo
+
 # Fix permissions
 find $DATA_DIR -type d -exec chmod 775 {} \;
 find $DATA_DIR -type f -exec chmod 664 {} \;
