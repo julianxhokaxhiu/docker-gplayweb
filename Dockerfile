@@ -71,7 +71,7 @@ RUN apk --update add --no-cache \
     openjdk8 \
     caddy
 
-# Required by PowerDNS Admin GUI
+# Required by GPlayWeb and FDroid Server
 RUN apk --update add --no-cache --virtual .build-deps \
     git \
     wget \
@@ -85,19 +85,6 @@ RUN apk --update add --no-cache --virtual .build-deps \
     zlib-dev \
     openssl-dev
 
-# Install GPlayWeb
-##################
-
-RUN cd $APP_DIR \
-    && git clone https://github.com/fxaguessy/gplayweb.git gplayweb \
-    && cd $APP_DIR/gplayweb \
-    && pip install --no-cache-dir -r requirements.txt
-
-# Install FDroid Server
-#######################
-
-RUN pip3 install fdroidserver
-
 # Install Android SDK
 #####################
 RUN cd $APP_DIR \
@@ -106,6 +93,19 @@ RUN cd $APP_DIR \
     && tar xzf android-sdk_r${ANDROID_SDK_VERSION}-linux.tgz \
     && rm android-sdk_r${ANDROID_SDK_VERSION}-linux.tgz \
     && echo 'y' | android update sdk --no-ui --filter platform-tools,build-tools-22.0.1
+
+# Install FDroid Server
+#######################
+
+RUN pip3 install fdroidserver
+
+# Install GPlayWeb
+##################
+
+RUN cd $APP_DIR \
+    && git clone https://github.com/fxaguessy/gplayweb.git gplayweb \
+    && cd $APP_DIR/gplayweb \
+    && pip install --no-cache-dir -r requirements.txt
 
 # Cleanup
 #########
